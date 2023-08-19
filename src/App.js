@@ -1,25 +1,46 @@
 import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar';
+import Sliding from './components/Sliding';
+import Contactbar from './components/Contactbar';
+import ContactUsBlock from './components/ContactUsBlock';
+import Cards from './components/Cards';
+import Foot from './components/Foot';
+import Register from './components/Register';
+import Login from './components/Login';
+
+
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+
+function Home() {
+  return (
+    <>
+      <Contactbar />
+      <Navbar />
+      <Sliding />
+      <ContactUsBlock />
+      <Cards />
+      <Foot />
+    </>
+  );
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+     <Routes>
+
+      <Route exact path="/" element={<Home />} />
+      <Route exact path="/Register" element={<Register />} />
+      <Route exact path="/Login" element={<Login/>} />
+     </Routes>
+    </BrowserRouter>
   );
 }
+
 
 export default App;
